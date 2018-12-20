@@ -12,7 +12,9 @@ RUN apt-get -y install apt-transport-https\
                        lsb-release\
                        python-dev\
                        python-pip\
-                       python-psycopg2
+                       python-psycopg2\
+                       uwsgi\
+                       uwsgi-plugin-python
 
 RUN curl -sS https://deb.nodesource.com/gpgkey/nodesource.gpg.key | apt-key add -
 RUN VERSION=node_8.x && \
@@ -35,6 +37,9 @@ RUN pip install /tmp/timesketch/
 
 # Copy the Timesketch configuration file into /etc
 RUN cp /usr/local/share/timesketch/timesketch.conf /etc
+
+# Copy the TimeSketch uWSGI configuration file into the container
+COPY uwsgi_config.ini /
 
 # Copy the entrypoint script into the container
 COPY docker-entrypoint.sh /
