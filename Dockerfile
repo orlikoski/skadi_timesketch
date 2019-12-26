@@ -1,5 +1,5 @@
 # Use the official Docker Hub aorlikoski/CDQR image
-FROM aorlikoski/cdqr:20191225
+FROM aorlikoski/cdqr:20191226
 MAINTAINER aorlikoski
 
 # Install uwsgi
