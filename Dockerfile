@@ -3,7 +3,7 @@ FROM aorlikoski/cdqr:20191226
 MAINTAINER aorlikoski
 
 # Install uwsgi
-RUN apt update && \
+RUN apt-get update && \
   apt-get -y install uwsgi uwsgi-plugin-python3
 
 # Cleanup apt cache
